@@ -1,0 +1,40 @@
+FORMAT: 1A
+HOST: https://api.test.paysafe.com
+
+# Refund
+
+Click on Refund above to see two examples of a Refund request.
+
++ A regular Refund
++ A Refund that is split into multiple merchant accounts, for merchant accounts that are configured to do so
++ A refund with automatic Purchase Return Authorization for acquireres/processors that support it
+
+## Refund [/cardpayments/v1/accounts/account_id/settlements/settlement_id/refunds]
+
+### Refund [POST /cardpayments/v1/accounts/account_id/settlements/settlement_id/refunds]
+
++ Request (application/json)
+
+            {
+              "merchantRefNum": "merchantRef_2016_04_11_05",
+              "amount": 5500,
+              "dupCheck": true
+            }
+
++ Response 200 (application/json)
+
+        {
+          "id": "d1fb46ee-2736-4ef5-a724-f263ace75374",
+          "merchantRefNum": "merchantRef_2016_04_11_05",
+          "amount": 5500,
+          "dupCheck": true,
+          "txnTime": "2017-02-14T15:12:18Z",
+          "gatewayReconciliationId": 12345678901,
+          "status": "COMPLETED",
+          "links": [
+            {
+              "rel": "self",
+              "href": "https://api.test.paysafe.com/cardpayments/v1/accounts/123456789/refunds/d1fb46ee-2736-4ef5-a724-f263ace75374"
+            }
+          ]
+        }
